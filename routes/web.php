@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +28,4 @@ Route::get('/calender',[PagesController::class,'calender'])->name('calender');
 Route::get('/chat',[PagesController::class,'chat'])->name('chat');
 Route::get('/addContribution',[PagesController::class,'addContribution'])->name('addContribution');
 Route::get('/issueBoard',[PagesController::class,'issueBoard'])->name('issueBoard');
-Route::get('/list',[PagesController::class,'list'])->name('list');
+Route::get('/list',[ProjectController::class,'projectView'])->name('list');
