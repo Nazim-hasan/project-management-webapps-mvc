@@ -11,9 +11,6 @@ class PagesController extends Controller
     public function index(){
         return view('Dashboard.Developers.Index');
     }
-    public function login(){
-        return view('Shared.Login.Login');
-    }
     public function registration(){
         return view('Shared.Registration.Register');
     }

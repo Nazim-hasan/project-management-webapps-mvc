@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,10 @@ use App\Http\Controllers\TaskController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',[PagesController::class,'login'])->name('login');
+Route::get('/',[UserController::class,'login'])->name('login');
+Route::post('/',[UserController::class,'loginSubmit'])->name('login');
+Route::get('/logout',[UserController::class,'logout'])->name('logout');
+
 Route::get('/dashboard',[PagesController::class,'index'])->name('dashboard');
 Route::get('/register',[PagesController::class,'registration'])->name('registration');
 Route::get('/myProfile',[PagesController::class,'myProfile'])->name('myProfile');
