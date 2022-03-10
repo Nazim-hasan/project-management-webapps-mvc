@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,7 @@ Route::get('/chat',[PagesController::class,'chat'])->name('chat');
 Route::get('/addContribution',[PagesController::class,'addContribution'])->name('addContribution');
 Route::get('/issueBoard',[PagesController::class,'issueBoard'])->name('issueBoard');
 Route::get('/list',[ProjectController::class,'projectView'])->name('list');
+
+
+Route::get('/project/tasks/{id}',[ProjectController::class,'projectTasks'])->name('project.tasks');
+Route::get('/tasks',[TaskController::class,'taskProject'])->name('project.tasks');
