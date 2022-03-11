@@ -98,5 +98,9 @@ class UserController extends Controller
         }
         return back();
     }
+    public function logout(){
+        Session()->forget('user');
+        return redirect()->route('login');
+    }
 
 }

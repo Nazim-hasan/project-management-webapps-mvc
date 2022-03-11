@@ -166,7 +166,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('login') }}" class="nav-link">Logout</a>
+      @if(Session::get('user'))
+        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+          <!-- @Session::flush(); -->
+      @endif
+        
       </li>
     </ul>
   </nav>
@@ -185,10 +189,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        @if(Session::get('user'))
+        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      @endif
+          
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          @if(Session::get('user'))
+            <a href="#" class="d-block">{{ Session::get('user') }}</a>
+          @endif
         </div>
       </div>
 
