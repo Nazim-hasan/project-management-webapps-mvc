@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\Comment;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -11,7 +12,10 @@ class PagesController extends Controller
 {
     //
     public function index(){
-        return view('Dashboard.Developers.Index');
+        $name = Session()->get('user');
+        $projects = Project::where('userName',$name )->get();
+        $tasks = Task::where('userName',$name )->get();
+        return view('Dashboard.Developers.Index')->with(['tasks'=> $tasks, 'projects'=> $projects]);
     }
     public function login(){
         return view('Shared.Login.Login');
@@ -29,6 +33,10 @@ class PagesController extends Controller
         $comments = Comment::where('projectId',$request->id)->get();
         $project = Project::where('ProjectId', $request->id)->first();
         return view('Dashboard.Developers.ProjectDetails')->with(['comments'=> $comments, 'project'=> $project]);
+    }
+    public function taskDetails(Request $request){
+        $task = Task::where('id', $request->id)->first();
+        return view('Dashboard.Developers.TaskDetails')->with(['task'=> $task]);
     }
     public function contact(){
         return view('Dashboard.Developers.Contact');

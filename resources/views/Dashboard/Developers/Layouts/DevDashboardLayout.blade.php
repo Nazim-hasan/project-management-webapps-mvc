@@ -243,7 +243,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </p>
                 </a>
               </li>
-              <li class="nav-item menu-close">
+              <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
                 <p>
@@ -288,14 +288,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
               <li class="nav-item">
                 <a href="{{ route('chat') }}" class="nav-link">
-                  <i class="nav-icon far fa-calendar-alt"></i>
+                  <i class="nav-icon nav-icon fas fa-edit"></i>
                   <p>
-                    Chat
+                    Public Chat
                   </p>
                 </a>
               </li>
-
-            
               
           
           

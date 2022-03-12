@@ -21,9 +21,6 @@ use Illuminate\Http\Response;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/',[UserController::class,'login'])->name('login');
 Route::post('/',[UserController::class,'loginSubmit'])->name('login');
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
@@ -42,9 +39,9 @@ Route::get('/issueBoard',[PagesController::class,'issueBoard'])->name('issueBoar
 Route::get('/list',[ProjectController::class,'projectView'])->name('list')->middleware('ValidDeveloper');
 
 
-Route::get('/project/tasks/{id}',[ProjectController::class,'projectTasks'])->name('project.tasks')->middleware('ValidDeveloper');
-Route::get('/tasks',[TaskController::class,'taskProject'])->name('project.tasks')->middleware('ValidDeveloper');
-
+// Route::get('/project/tasks/{id}',[ProjectController::class,'projectTasks'])->name('project.tasks')->middleware('ValidDeveloper');
+// Route::get('/tasks',[TaskController::class,'taskProject'])->name('project.tasks')->middleware('ValidDeveloper');
+Route::get('/taskDetails/{id}',[PagesController::class,'taskDetails'])->name('taskDetails')->middleware('ValidDeveloper');
 
 
 Route::post('/send-message',function (Request $request){
