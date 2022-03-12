@@ -11,6 +11,9 @@ class PagesController extends Controller
     public function index(){
         return view('Dashboard.Developers.Index');
     }
+    public function login(){
+        return view('Shared.Login.Login');
+    }
     public function registration(){
         return view('Shared.Registration.Register');
     }
@@ -43,4 +46,7 @@ class PagesController extends Controller
         // Storage::disk('local')->put('example.txt', 'Contents');
         return view('Dashboard.Developers.List');
     }
+    // public function chat(){
+    //     return view('Dashboard.Developers.Chatting');
+    // }
 }

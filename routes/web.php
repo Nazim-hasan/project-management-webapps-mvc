@@ -5,6 +5,11 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+
+// for chatting
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +44,28 @@ Route::get('/list',[ProjectController::class,'projectView'])->name('list')->midd
 
 Route::get('/project/tasks/{id}',[ProjectController::class,'projectTasks'])->name('project.tasks')->middleware('ValidDeveloper');
 Route::get('/tasks',[TaskController::class,'taskProject'])->name('project.tasks')->middleware('ValidDeveloper');
+
+
+
+// Route::get('/chat',[PagesController::class,'chat'])->name('chat');
+
+
+// Route::get('/chat', function(){
+//     return view('../Dashboard.Developers.Chatting');
+// });
+Route::post('/send-message',function (Request $request){
+    event(
+        new Message(
+            $request->input('username'),
+            $request->input('message')
+        )
+    );
+    // echo $request;
+    return ["success"=>true];
+});
+
+// Route::get('/getMessage', function () {
+//     $payLoad = json_decode(request()->get('payload'));
+
+//     dd($payLoad);
+// });
