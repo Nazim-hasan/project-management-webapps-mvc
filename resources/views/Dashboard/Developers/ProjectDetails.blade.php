@@ -38,7 +38,7 @@
                         <div class="info-box bg-success">
                            <div class="info-box-content">
                               <span class="info-box-text text-center text-white">Estimated budget</span>
-                              <span class="info-box-number text-center text-white mb-0">2300</span>
+                              <span class="info-box-number text-center text-white mb-0">{{$project->budget}}</span>
                            </div>
                         </div>
                      </div>
@@ -46,7 +46,7 @@
                         <div class="info-box bg-danger">
                            <div class="info-box-content">
                               <span class="info-box-text text-center text-white">Total amount spent</span>
-                              <span class="info-box-number text-center text-white mb-0">2000</span>
+                              <span class="info-box-number text-center text-white mb-0">{{$project->amountSpent}}</span>
                            </div>
                         </div>
                      </div>
@@ -54,7 +54,7 @@
                         <div class="info-box bg-warning">
                            <div class="info-box-content">
                               <span class="info-box-text text-center text-white">Estimated project duration</span>
-                              <span class="info-box-number text-center text-white mb-0">20</span>
+                              <span class="info-box-number text-center text-white mb-0">{{$project->deadline}}</span>
                            </div>
                         </div>
                      </div>
@@ -62,57 +62,26 @@
                   <div class="row">
                      <div class="col-12">
                         <h4>Recent Activity</h4>
-                        <div class="post">
-                           <div class="user-block">
-                              <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                              <span class="username">
-                              <a href="#">Jonathan Burke Jr.</a>
-                              </span>
-                              <span class="description">Shared publicly - 7:45 PM today</span>
-                           </div>
-                           <p>
-                              Lorem ipsum represents a long-held tradition for designers,
-                              typographers and the like. Some people hate it and argue for
-                              its demise, but others ignore.
-                           </p>
-                           <p>
-                              <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v2</a>
-                           </p>
-                        </div>
+                        @foreach($comments as $comment)
                         <div class="post clearfix">
                            <div class="user-block">
                               <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
                               <span class="username">
-                              <a href="#">Sarah Ross</a>
+                              <a href="#">{{ $comment->userName }}</a>
                               </span>
-                              <span class="description">Sent you a message - 3 days ago</span>
+                              <span class="description">Commented on this project</span>
                            </div>
                            <p>
-                              Lorem ipsum represents a long-held tradition for designers,
-                              typographers and the like. Some people hate it and argue for
-                              its demise, but others ignore.
+                           {{ $comment->comment }}
                            </p>
                            <p>
                               <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 2</a>
                            </p>
                         </div>
-                        <div class="post">
-                           <div class="user-block">
-                              <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                              <span class="username">
-                              <a href="#">Jonathan Burke Jr.</a>
-                              </span>
-                              <span class="description">Shared publicly - 5 days ago</span>
-                           </div>
-                           <p>
-                              Lorem ipsum represents a long-held tradition for designers,
-                              typographers and the like. Some people hate it and argue for
-                              its demise, but others ignore.
-                           </p>
-                           <p>
-                              <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v1</a>
-                           </p>
-                        </div>
+
+                        @endforeach
+                        
+                        
                      </div>
                   </div>
                </div>
@@ -121,8 +90,8 @@
                      <a href=" {{ route('addContribution') }}" class="btn btn-sm btn-primary">Add files / Contribute</a>
                      <a href="#" class="btn btn-sm btn-warning">Report contact</a>
                   </div>
-                  <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{$projectDetails->projectName}}</h3>
-                  <p class="text-muted"> {{$projectDetails->projectName}} </p>
+                  <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{$project->projectName}}</h3>
+                  <p class="text-muted"> {{$project->projectName}} </p>
                   <br>
                   <div class="text-muted">
                      <p class="text-sm">Client Company
@@ -130,6 +99,9 @@
                      </p>
                      <p class="text-sm">Project Leader
                         <b class="d-block">Tony Chicken</b>
+                     </p>
+                     <p class="text-sm">Assigned Date: 
+                        <b class="">{{$project->assignDate}}</b>
                      </p>
                   </div>
                   <h5 class="mt-5 text-muted">Project files</h5>

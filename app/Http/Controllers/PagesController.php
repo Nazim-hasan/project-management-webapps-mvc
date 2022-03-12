@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,9 +26,9 @@ class PagesController extends Controller
         return view('Dashboard.Developers.Projects');
     }
     public function projectDetails(Request $request){
-
+        $comments = Comment::where('projectId',$request->id)->get();
         $project = Project::where('ProjectId', $request->id)->first();
-        return view('Dashboard.Developers.ProjectDetails')->with('projectDetails', $project);
+        return view('Dashboard.Developers.ProjectDetails')->with(['comments'=> $comments, 'project'=> $project]);
     }
     public function contact(){
         return view('Dashboard.Developers.Contact');

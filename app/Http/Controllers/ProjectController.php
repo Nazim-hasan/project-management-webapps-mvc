@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -91,11 +92,11 @@ class ProjectController extends Controller
     }
 
     public function projectView(){
-        $projects = Project::all();
+        $projects = Comment::where('projectId',8)->get();
         return view('Dashboard.Developers.List')->with('projects', $projects);
     }
     public function projectTasks(Request $request){
-        $p = Project::where('ProjectId',$request->id)->first();
+        $p = Project::where('ProjectId',$request->id)->get();
         return $p->assignedTasks();
     }
 }

@@ -12,15 +12,10 @@
             <th>Status</th>
 
         </tr>
+        <tr><td>{{ $projects }}</td></tr>
         @foreach($projects as $project)
         <tr>
-            <td>{{$project->ProjectId}}</td>
-            <td>{{$project->projectName}}</td>
-            <td>{{$project->projectDetails}}</td>
-            <td>{{$project->assignDate}}</td>
-            <td>{{$project->deadline}}</td>
-            <td>{{$project->status}}</td>
-            
+            <td>{{ $project->commentsId }}</td>
 
         </tr>
         @endforeach
