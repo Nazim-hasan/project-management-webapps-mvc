@@ -80,6 +80,12 @@
                         </div>
 
                         @endforeach
+                        <form class="form-horizontal"  action="{{route('commentSubmit')}}" method="post">
+                        {{csrf_field()}}
+                        <input class="form-control form-control-sm" type="text" name="projectId" value="{{$project->ProjectId }}" placeholder="Type a Project ID" style="width: 0%">
+                        <input class="form-control form-control-sm" type="text" name="comment" placeholder="Type a comment">
+                        <input type="submit" value="submit" class="btn-sm btn-success mt-2">
+                        </form>
                         
                         
                      </div>
@@ -87,8 +93,8 @@
                </div>
                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                <div class="text-left mt-5 mb-3">
-                     <a href=" {{ route('addContribution') }}" class="btn btn-sm btn-primary">Add files / Contribute</a>
-                     <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                     <!-- <a href=" {{ route('addContribution') }}" class="btn btn-sm btn-primary">Add files / Contribute</a> -->
+                     <a href="#" class="btn btn-sm btn-primary">Report contact</a>
                   </div>
                   <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{$project->projectName}}</h3>
                   <p class="text-muted"> {{$project->projectName}} </p>

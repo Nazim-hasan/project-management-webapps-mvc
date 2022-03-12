@@ -29,6 +29,9 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 Route::get('/dashboard',[PagesController::class,'index'])->name('dashboard')->middleware('ValidDeveloper');
 Route::get('/register',[PagesController::class,'registration'])->name('registration')->middleware('ValidDeveloper');
 Route::get('/myProfile',[PagesController::class,'myProfile'])->name('myProfile')->middleware('ValidDeveloper');
+Route::post('/myProfile',[PagesController::class,'myProfileEditSubmit'])->name('myProfile')->middleware('ValidDeveloper');
+Route::post('/commentSubmit',[ProjectController::class,'commentSubmit'])->name('commentSubmit')->middleware('ValidDeveloper');
+
 Route::get('/projects',[ProjectController::class,'projects'])->name('projects')->middleware('ValidDeveloper');
 Route::get('/projectDetails/{id}',[PagesController::class,'projectDetails'])->name('projectDetails')->middleware('ValidDeveloper');
 Route::get('/contact',[PagesController::class,'contact'])->name('contact')->middleware('ValidDeveloper');

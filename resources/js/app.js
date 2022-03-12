@@ -35,7 +35,7 @@ window.Echo.channel("chat").listen(".message", (e) => {
     persons.innerHTML += `
     <li class="chat-left" style="display: block;">
     <div class="chat-avatar d-block">
-        <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png" alt="Retail Admin">
+        <img src="../../dist/img/user1-128x128.jpg" alt="Retail Admin">
         <div class="chat-name" id="username-name">${e.username}</div>
     </div>
     <div class="chat-text" id="message-show">${e.message}</div>

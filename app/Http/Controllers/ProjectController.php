@@ -99,4 +99,13 @@ class ProjectController extends Controller
         $p = Project::where('ProjectId',$request->id)->get();
         return $p->assignedTasks();
     }
+    public function commentSubmit(Request $request){
+        $nameFromSession = Session()->get('user');
+        $comment = new Comment();
+        $comment->userName = $nameFromSession;
+        $comment->comment = $request->comment;
+        $comment->projectId  = $request->projectId;
+        $comment->save();
+        return redirect()->route('projects');
+    }
 }

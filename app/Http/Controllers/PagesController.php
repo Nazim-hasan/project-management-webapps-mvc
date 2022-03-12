@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\user;
 use App\Models\Task;
 use App\Models\Comment;
 use App\Models\Project;
@@ -24,7 +25,31 @@ class PagesController extends Controller
         return view('Shared.Registration.Register');
     }
     public function myProfile(){
-        return view('Dashboard.Developers.MyProfile');
+        $name = Session()->get('user');
+        $userInfo = user::where('userName',$name )->first();
+        $comments = Comment::where('userName',$name)->get();
+        return view('Dashboard.Developers.MyProfile')->with(['userInfo'=> $userInfo, 'comments'=> $comments]);
+    }
+    public function myProfileEditSubmit(Request $request){
+        $name = Session()->get('user');
+        $userInfo = user::where('userName',$name )->first();
+        $userInfo->userId =  $userInfo->userId;
+        $userInfo->userName =  $request->userName;
+        $userInfo->password =  $request->password;
+        $userInfo->email =  $request->email;
+        $userInfo->education =  $request->education;
+        $userInfo->address =  $request->address;
+        $userInfo->phone =  $request->phone;
+        $userInfo->joinningDate =  $userInfo->joinningDate;
+        $userInfo->skills =  $request->skills;
+        $userInfo->photo =  $userInfo->photo;
+        $userInfo->status =  $userInfo->status;
+        $userInfo->teamId  =  $userInfo->teamId;
+        $userInfo->status =  $userInfo->role;
+        $userInfo->save();
+
+        return redirect()->route('myProfile');
+
     }
     public function projects(){
         return view('Dashboard.Developers.Projects');
