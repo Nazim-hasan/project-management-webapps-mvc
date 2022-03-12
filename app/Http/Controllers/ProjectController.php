@@ -85,6 +85,11 @@ class ProjectController extends Controller
     {
         //
     }
+    public function projects(){
+        $projects = Project::all();
+        return view('Dashboard.Developers.Projects')->with('projects', $projects);
+    }
+
     public function projectView(){
         $projects = Project::all();
         return view('Dashboard.Developers.List')->with('projects', $projects);

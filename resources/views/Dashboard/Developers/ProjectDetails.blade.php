@@ -121,8 +121,8 @@
                      <a href=" {{ route('addContribution') }}" class="btn btn-sm btn-primary">Add files / Contribute</a>
                      <a href="#" class="btn btn-sm btn-warning">Report contact</a>
                   </div>
-                  <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
-                  <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
+                  <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{$projectDetails->projectName}}</h3>
+                  <p class="text-muted"> {{$projectDetails->projectName}} </p>
                   <br>
                   <div class="text-muted">
                      <p class="text-sm">Client Company

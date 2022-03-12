@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,8 +24,10 @@ class PagesController extends Controller
     public function projects(){
         return view('Dashboard.Developers.Projects');
     }
-    public function projectDetails(){
-        return view('Dashboard.Developers.ProjectDetails');
+    public function projectDetails(Request $request){
+
+        $project = Project::where('ProjectId', $request->id)->first();
+        return view('Dashboard.Developers.ProjectDetails')->with('projectDetails', $project);
     }
     public function contact(){
         return view('Dashboard.Developers.Contact');
@@ -42,8 +45,6 @@ class PagesController extends Controller
         return view('Dashboard.Developers.IssuesBoard');
     }
     public function list(){
-        // $txt = File::get(storage_path('myfolder/test.txt'));
-        // Storage::disk('local')->put('example.txt', 'Contents');
         return view('Dashboard.Developers.List');
     }
     // public function chat(){

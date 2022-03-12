@@ -20,12 +20,7 @@
                                 <h6>Joined in Chat as <span id="username-name">{{ Session::get('user') }}</span></h4>
                                 <ul class="chat-box chatContainerScroll" id="persons">
                                     
-                                    
-                                        <!-- <div class="chat-avatar" style="visibility: hidden;">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png" alt="Retail Admin">
-                                            <div class="chat-name" id="username-name">{{ Session::get('user') }}</div>
-                                        </div> -->
-                                        <div class="chat-text" id="message-show"></div>
+                                    <div class="chat-text" id="message-show"></div>
                                     </li>
                                     
                                 </ul>

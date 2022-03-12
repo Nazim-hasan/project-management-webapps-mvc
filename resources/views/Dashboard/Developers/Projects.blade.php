@@ -52,17 +52,18 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
+               @foreach($projects as $project)
+               <tr>
                      <td>
-                        #
+                     {{$project->ProjectId}}
                      </td>
                      <td>
                         <a>
-                        AdminLTE v3
+                        {{$project->projectName}}
                         </a>
                         <br>
                         <small>
-                        Created 01.01.2019
+                        {{$project->assignDate}}
                         </small>
                      </td>
                      <td>
@@ -86,275 +87,19 @@
                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%"></div>
                         </div>
                         <small>
+                           
                         57% Complete
                         </small>
                      </td>
                      <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
+                        <a class="btn btn-primary btn-sm" href="/projectDetails/{{$project->ProjectId}}">
                         <i class="fas fa-folder">
                         </i>
                         View Details
                         </a>
                      </td>
                   </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%"></div>
-                        </div>
-                        <small>
-                        47% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%"></div>
-                        </div>
-                        <small>
-                        77% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-                        </div>
-                        <small>
-                        60% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar5.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="width: 12%"></div>
-                        </div>
-                        <small>
-                        12% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%"></div>
-                        </div>
-                        <small>
-                        35% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="{{ route('projectDetails') }}">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        #
-                     </td>
-                     <td>
-                        <a>
-                        AdminLTE v3
-                        </a>
-                        <br>
-                        <small>
-                        Created 01.01.2019
-                        </small>
-                     </td>
-                     <td>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                           </li>
-                           <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar5.png">
-                           </li>
-                        </ul>
-                     </td>
-                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                           <div class="progress-bar bg-green" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%"></div>
-                        </div>
-                        <small>
-                        77% Complete
-                        </small>
-                     </td>
-                     <td class="project-actions text-center">
-                        <a class="btn btn-primary btn-sm" href="#">
-                        <i class="fas fa-folder">
-                        </i>
-                        View Details
-                        </a>
-                     </td>
-                  </tr>
+                  @endforeach
                </tbody>
             </table>
          </div>
