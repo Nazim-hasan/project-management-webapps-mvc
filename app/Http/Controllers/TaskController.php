@@ -88,4 +88,11 @@ class TaskController extends Controller
         $t = Task::where('id',3)->first();
         return $t->assignedTask();
     }
+    
+    public function myTasks(){
+        
+        $name = Session()->get('user');
+        $tasks = Task::where('userName',$name )->get();
+        return view('Dashboard.Developers.Tasks')->with(['tasks'=> $tasks]);
+    }
 }

@@ -91,6 +91,7 @@ class ProjectController extends Controller
         return view('Dashboard.Developers.Projects')->with('projects', $projects);
     }
 
+    
     public function projectView(){
         $projects = Comment::where('projectId',8)->get();
         return view('Dashboard.Developers.List')->with('projects', $projects);

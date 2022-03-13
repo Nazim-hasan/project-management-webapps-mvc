@@ -243,6 +243,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('myTasks') }}" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    My Tasks
+                  </p>
+                </a>
+              </li>
               <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
@@ -516,6 +524,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     })
   })
 </script>
+<!-- <script>
+  var config={
+    apiKey: "AIzaSyAaufSzfBc0N9ZLDV4meq4xw5dt8K8Og0c",
+    authDomain: "project-mangement-webapps.firebaseapp.com",
+    projectId: "project-mangement-webapps",
+    storageBucket: "project-mangement-webapps.appspot.com",
+    messagingSenderId: "611482240827",
+    appId: "1:611482240827:web:be7cc45ca3fac267f7191e"
+  }
+</script> -->
 
 
 <!-- CALENDER  -->

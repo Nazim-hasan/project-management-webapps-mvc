@@ -33,11 +33,14 @@ Route::post('/myProfile',[PagesController::class,'myProfileEditSubmit'])->name('
 Route::post('/commentSubmit',[ProjectController::class,'commentSubmit'])->name('commentSubmit')->middleware('ValidDeveloper');
 
 Route::get('/projects',[ProjectController::class,'projects'])->name('projects')->middleware('ValidDeveloper');
+Route::get('/myTasks',[TaskController::class,'myTasks'])->name('myTasks')->middleware('ValidDeveloper');
 Route::get('/projectDetails/{id}',[PagesController::class,'projectDetails'])->name('projectDetails')->middleware('ValidDeveloper');
 Route::get('/contact',[PagesController::class,'contact'])->name('contact')->middleware('ValidDeveloper');
 Route::get('/calender',[PagesController::class,'calender'])->name('calender')->middleware('ValidDeveloper');
 Route::get('/chat',[PagesController::class,'chat'])->name('chat')->middleware('ValidDeveloper');
 Route::get('/addContribution',[PagesController::class,'addContribution'])->name('addContribution')->middleware('ValidDeveloper');
+Route::post('/addContribution',[PagesController::class,'addContributionSubmit'])->name('addContribution')->middleware('ValidDeveloper');
+Route::get('downloadContent/{file}',[PagesController::class,'downloadContent'])->name('downloadContent')->middleware('ValidDeveloper');
 Route::get('/issueBoard',[PagesController::class,'issueBoard'])->name('issueBoard')->middleware('ValidDeveloper');
 Route::get('/list',[ProjectController::class,'projectView'])->name('list')->middleware('ValidDeveloper');
 

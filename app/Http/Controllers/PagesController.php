@@ -14,8 +14,8 @@ class PagesController extends Controller
     //
     public function index(){
         $name = Session()->get('user');
-        $projects = Project::where('userName',$name )->get();
         $tasks = Task::where('userName',$name )->get();
+        $projects = Project::where('userName',$name )->get();
         return view('Dashboard.Developers.Index')->with(['tasks'=> $tasks, 'projects'=> $projects]);
     }
     public function login(){
@@ -51,7 +51,7 @@ class PagesController extends Controller
         return redirect()->route('myProfile');
 
     }
-    public function projects(){
+    public function myTasks(){
         return view('Dashboard.Developers.Projects');
     }
     public function projectDetails(Request $request){
@@ -73,7 +73,22 @@ class PagesController extends Controller
         return view('Dashboard.Developers.Chat');
     }
     public function addContribution(){
+        
         return view('Dashboard.Developers.AddContribute');
+    }
+    public function addContributionSubmit(Request $request){
+
+        $taskInfo = Task::where('id',$request->id)->first();
+        $file=$request->file;
+        $filename=time().'.'.$file->getClientOriginalExtension();
+        $request->file->move('assets',$filename);
+        $taskInfo->solution=$filename;
+        $taskInfo->save();
+        return redirect()->back();
+    }
+    public function downloadContent(Request $request,$file){
+
+        return response()->download(public_path('assets/'.$file));
     }
     public function issueBoard(){
         return view('Dashboard.Developers.IssuesBoard');
