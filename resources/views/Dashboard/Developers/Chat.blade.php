@@ -20,7 +20,7 @@
                                 <h6>Joined in Chat as <span id="username-name">{{ Session::get('user') }}</span></h4>
                                 <ul class="chat-box chatContainerScroll" id="persons">
                                     
-                                    <div class="chat-text" id="message-show"></div>
+                                    <div class="" id="message-show"></div>
                                     </li>
                                     
                                 </ul>

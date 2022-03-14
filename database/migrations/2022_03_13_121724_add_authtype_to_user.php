@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-
-            $table->id();
-            $table->timestamps();
-            $table->foreignId('projects_ProjectId'->nullable()->constrained('projects'))->cascadeOnUpdate()->nullOnDelete();
-
+        Schema::table('user', function (Blueprint $table) {
+            $table->string('auth_type')->default('email');
+            //
         });
     }
 
@@ -29,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropColumn('auth_type');
+        });
     }
 };

@@ -25,39 +25,52 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="../../index.html" method="post">
+      <form action="{{route('registration')}}" method="post">
+      {{csrf_field()}}
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" name="name" placeholder="Full name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
+        @error('name')
+            <span class="text-danger"> {{$message}}</span>
+          @enderror
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+        @error('email')
+            <span class="text-danger"> {{$message}}</span>
+        @enderror
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        @error('password')
+            <span class="text-danger"> {{$message}}</span>
+          @enderror
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" name="confirmPassword" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        @error('confirmPassword')
+            <span class="text-danger"> {{$message}}</span>
+          @enderror
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -67,6 +80,9 @@
               </label>
             </div>
           </div>
+          @error('terms')
+            <span class="text-danger"> {{$message}}</span>
+          @enderror
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
@@ -77,13 +93,11 @@
 
       <div class="social-auth-links text-center">
         <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
+        <a class="btn btn-block btn-primary" href="/auth/github/redirect">
+          <i class="fab fa-github mr-2"></i> Sign in using GitHub
         </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
+        <a href="/auth/google/redirect" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
       </div>
 

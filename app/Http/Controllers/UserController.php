@@ -88,6 +88,16 @@ class UserController extends Controller
         return view('Shared.Login.Login');
     }
     public function loginSubmit(Request $request){
+        
+        $validate = $request->validate([
+            'userId'=>'required',
+            'password'=>'required|min:8|max:20'
+        ],
+        [
+            'userId.required'=>'Please put your User ID.',
+            'password.min'=>'Name must be greater than 8 characters'
+        ]);
+
         $user = user::where('userId', $request->userId)
                       ->where('password', $request->password)
                       ->first();

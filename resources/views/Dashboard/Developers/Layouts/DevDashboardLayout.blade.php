@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="info">
           @if(Session::get('user'))
-            <a href="#" class="d-block">{{ Session::get('user') }}</a>
+            <a href="/myProfile" class="d-block">{{ Session::get('user') }}</a>
           @endif
         </div>
       </div>
@@ -269,7 +269,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('issueBoard') }}" class="nav-link">
+                  <a href="/issueBoard" class="nav-link">
                     <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Board

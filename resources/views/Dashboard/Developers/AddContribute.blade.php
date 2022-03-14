@@ -22,7 +22,7 @@
       {{csrf_field()}}   
       <div class="card-body">
             <div class="form-group">
-               <input class="form-control" id="exampleInputPassword1" placeholder="ID" value="4" name="id">
+               <input class="form-control" id="exampleInputPassword1" placeholder="ID" value="{{$taskId}}" name="id">
             </div>
             <div class="form-group">
                <label for="exampleInputFile">File input</label>

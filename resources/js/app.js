@@ -33,12 +33,14 @@ window.Echo.channel("chat").listen(".message", (e) => {
     console.log(e);
 
     persons.innerHTML += `
-    <li class="chat-left" style="display: block;">
-    <div class="chat-avatar d-block">
+    <li class="chat-left d-block">
+    <div class="chat-avatar d-flex">
         <img src="../../dist/img/user1-128x128.jpg" alt="Retail Admin">
-        <div class="chat-name" id="username-name">${e.username}</div>
+        
+        <div class="chat-text" id="message-show"><span>${e.message}</span></div>
     </div>
-    <div class="chat-text" id="message-show">${e.message}</div>
+    <div class="chat-name" id="username-name" style="text-align: left;"><p>${e.username}</p></div>
     </li>
     `;
+    message_input.value = "";
 });

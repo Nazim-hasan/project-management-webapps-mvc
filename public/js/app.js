@@ -2195,7 +2195,8 @@ message_form.addEventListener("submit", function (e) {
 });
 window.Echo.channel("chat").listen(".message", function (e) {
   console.log(e);
-  persons.innerHTML += "\n    <li class=\"chat-left\" style=\"display: block;\">\n    <div class=\"chat-avatar d-block\">\n        <img src=\"https://www.bootdey.com/img/Content/avatar/avatar5.png\" alt=\"Retail Admin\">\n        <div class=\"chat-name\" id=\"username-name\">".concat(e.username, "</div>\n    </div>\n    <div class=\"chat-text\" id=\"message-show\">").concat(e.message, "</div>\n    </li>\n    ");
+  persons.innerHTML += "\n    <li class=\"chat-left d-block\">\n    <div class=\"chat-avatar d-flex\">\n        <img src=\"../../dist/img/user1-128x128.jpg\" alt=\"Retail Admin\">\n        \n        <div class=\"chat-text\" id=\"message-show\"><span>".concat(e.message, "</span></div>\n    </div>\n    <div class=\"chat-name\" id=\"username-name\" style=\"text-align: left;\"><p>").concat(e.username, "</p></div>\n    </li>\n    ");
+  message_input.value = "";
 });
 
 /***/ }),

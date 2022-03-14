@@ -50,7 +50,7 @@
                </div>
                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                <div class="text-left mt-5 mb-3">
-                     <a href="{{ route('addContribution') }}" class="btn btn-sm btn-success">Add files / Contribute</a>
+                     <a href="/addContribution/{{$task->id}}" class="btn btn-sm btn-success">Add files / Contribute</a>
                      <a href="#" class="btn btn-sm btn-primary">Report contact</a>
                   </div>
                   <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{ $task->TaskTitle }} </h3>

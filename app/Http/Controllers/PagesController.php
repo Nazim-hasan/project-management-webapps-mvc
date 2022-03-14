@@ -22,12 +22,38 @@ class PagesController extends Controller
         return view('Shared.Login.Login');
     }
     public function registration(){
+        
+        
         return view('Shared.Registration.Register');
+    }
+    public function registrationSubmit(Request $request){
+        $validate = $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'min:6|required_with:confirmPassword|same:confirmPassword',
+            'confirmPassword'=>'min:6',
+            'terms'=>'required',
+        ],
+        [
+            'name.required'=>'Please put your Full Name.',
+            'email.required'=>'Please put your Email.',
+            'password.min'=>'Password must be greater than 6 characters.',
+            'confirmPassword.min'=>'Password and confirm password should be same',
+            'terms.required'=>'Please accept the terms and conditions',
+
+        ]);
+        $user = new user();
+        $user->userName = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('login');
+        // return view('Dashboard.Developers.Login');
     }
     public function myProfile(){
         $name = Session()->get('user');
         $userInfo = user::where('userName',$name )->first();
-        $comments = Comment::where('userName',$name)->get();
+        $comments = Comment::where('userName',$name)->orderBy('commentsId','DESC' )->get();
         return view('Dashboard.Developers.MyProfile')->with(['userInfo'=> $userInfo, 'comments'=> $comments]);
     }
     public function myProfileEditSubmit(Request $request){
@@ -72,9 +98,9 @@ class PagesController extends Controller
     public function chat(){
         return view('Dashboard.Developers.Chat');
     }
-    public function addContribution(){
-        
-        return view('Dashboard.Developers.AddContribute');
+    public function addContribution(Request $request){
+        $taskId = $request->id;
+        return view('Dashboard.Developers.AddContribute')->with(['taskId'=> $taskId]);
     }
     public function addContributionSubmit(Request $request){
 
@@ -84,7 +110,7 @@ class PagesController extends Controller
         $request->file->move('assets',$filename);
         $taskInfo->solution=$filename;
         $taskInfo->save();
-        return redirect()->back();
+        return view('Dashboard.Developers.Tasks');
     }
     public function downloadContent(Request $request,$file){
 

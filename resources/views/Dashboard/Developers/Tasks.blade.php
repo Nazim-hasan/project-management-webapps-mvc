@@ -60,7 +60,7 @@
                      </td>
                      
                      <td align=''>
-                        <a>
+                        <a href="/downloadContent/{{$task->solution}}">
                         {{$task->solution}}
                         </a>
                         <br>

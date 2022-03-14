@@ -26,22 +26,38 @@
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="{{ route('login') }}" method="post">
+        
         {{ @csrf_field() }}
-        <div class="input-group mb-3">
+        <div class="mb-2">
+        <div class="input-group">
           <input type="text" class="form-control" placeholder="UserID" name="userId">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
+              
             </div>
+            
           </div>
+          
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+        @error('userId')
+              <p class="text-danger"> {{$message}}</p>
+        @enderror
+        </div>
+        
+        <div class="mb-2">
+          <div class="input-group">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+                
+              </div>
             </div>
           </div>
+          @error('password')
+            <span class="text-danger"> {{$message}}</span>
+          @enderror
         </div>
         <div class="row">
           <div class="col-8">
@@ -63,10 +79,10 @@
 
       <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
-        <a class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        <a class="btn btn-block btn-primary" href="/auth/github/redirect">
+          <i class="fab fa-github mr-2"></i> Sign in using GitHub
         </a>
-        <a href="#" class="btn btn-block btn-danger">
+        <a href="/auth/google/redirect" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
       </div>
@@ -76,7 +92,7 @@
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href=" {{ route('registration') }} " class="text-center">Register a new membership</a>
+        <a href="/register" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->
