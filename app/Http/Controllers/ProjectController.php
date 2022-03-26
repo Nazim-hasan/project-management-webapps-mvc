@@ -100,6 +100,7 @@ class ProjectController extends Controller
         $p = Project::where('ProjectId',$request->id)->get();
         return $p->assignedTasks();
     }
+    
     public function commentSubmit(Request $request){
         $nameFromSession = Session()->get('user');
         $comment = new Comment();

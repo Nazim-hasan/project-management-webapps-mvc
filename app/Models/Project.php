@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     public function assignedTasks(){
         return Task::where('projectId', $this->id)->get();

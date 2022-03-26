@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
+            $table->foreignId('projects_ProjectId'->nullable()->constrained('projects'))->cascadeOnUpdate()->nullOnDelete();
             $table->id();
             $table->timestamps();
         });
