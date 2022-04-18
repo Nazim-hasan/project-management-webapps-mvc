@@ -25,8 +25,11 @@ class ProjectAPIController extends Controller
         $project->commentId = $request->commentId;
         $project->userName = $request->userName;
         $project->save();
-        
         return $project;
 
+    }
+    public function project(Request $request){
+        $project = Project::where('ProjectId',$request->id)->first();
+        return $project;
     }
 }

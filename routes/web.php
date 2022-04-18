@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Controllers\Website;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +76,6 @@ Route::get('/auth/github/redirect',[authController::class,'githubRedirect']);
 Route::get('/auth/github/callback',[authController::class,'githubCallback']);
 Route::get('/auth/google/redirect',[authController::class,'googleRedirect']);
 Route::get('/auth/google/callback',[authController::class,'googleCallback']);
+
+
+Route::get('/website',[Website::class,'website']);
